@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRANTRA Hotel Booking</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background-color: #ddee90;
+            color: #1a3812;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header nav {
+            background-color: #666a12;
+            padding: 10px;
+        }
+        header nav a {
+            color: #849b7e;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        .section {
+            background-color: rgba(104, 144, 52, 0.744);
+            padding: 20px;
+            margin-bottom: 20px;
+            color: white;
+            background-image: url("meal.PNG");
+        }
+        .section h2 {
+            color: white;
+        }
+        .room-options, .time-options, .payment-options {
+            margin-top: 15px;
+        }
+        .time-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #87b34e;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #666a12;
+            color: #849b7e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NIRANTRA</h1>
+            <h2>Naturally luxurious Organically inspired!</h2>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#availability">Availability</a>
+                <a href="#checkin">Check-In</a>
+                <a href="#checkout">Check-Out</a>
+                <a href="#details">Details</a>
+                <a href="#payment">Payment</a>
+                <a href="#faq">FAQ's</a>
+            </nav>
+        </header>
+        <section id="home" class="section">
+            <h2>Welcome to NIRANTRA!</h2>
+            <p>Experience the ultimate in organic luxury. Book your stay with us and enjoy a tranquil retreat.</p>
+        </section>
+        <section id="availability" class="section">
+            <h2>Availability</h2>
+            <p>Choose your room:</p>
+            <div class="room-options">
+                <label><input type="radio" name="room" value="1">1 Cot</label>
+                <label><input type="radio" name="room" value="2">2 Cots</label>
+                <label><input type="radio" name="room" value="3">3 Cots</label>
+            </div>
+        </section>
+        <section id="checkin" class="section">
+            <h2>Check-In</h2>
+            <p>Select your check-in time:</p>
+            <div class="time-options">
+                <button class="time-btn" data-time="9-12">Forenoon (9am-12pm)</button>
+                <button class="time-btn" data-time="12-15">Afternoon (12pm-3pm)</button>
+                <button class="time-btn" data-time="19-24">Night stay (7pm-12am)</button>
+            </div>
+        </section>
+
+        <section id="checkout" class="section">
+            <h2>Check-Out</h2>
+            <p>Select your check-out time:</p>
+            <div class="time-options">
+                <button class="time-btn" data-time="9-12">Forenoon (9am-12pm)</button>
+                <button class="time-btn" data-time="12-15">Afternoon (12pm-3pm)</button>
+                <button class="time-btn" data-time="19-24">Night stay (7pm-12am)</button>
+            </div>
+        </section>
+        <section id="details" class="section">
+            <h2>About Us</h2>
+            <p>NIRANTRA is a naturally luxurious, organically inspired hotel providing a unique and relaxing experience.</p>
+        </section>
+        <section id="payment" class="section">
+            <h2>Payment</h2>
+            <p>Choose your payment method:</p>
+            <div class="payment-options">
+                <label><input type="radio" name="payment" value="online">Online</label>
+                <label><input type="radio" name="payment" value="offline">Offline</label>
+            </div>
+        </section>
+        <section id="faq" class="section">
+            <h2>FAQ's</h2>
+            <p>Common questions and answers about our hotel.</p>
+            <p>Contact us: <a href="mailto:nirantra@gmail.com">nirantra@gmail.com</a></p>
+        </section>
+        <footer>
+            <p>&copy; 2025 NIRANTRA Hotel</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeButtons = document.querySelectorAll('.time-btn');
+            const roomRadios = document.querySelectorAll('input[name="room"]');
+            const paymentRadios = document.querySelectorAll('input[name="payment"]');
+            timeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert(`Selected time: ${this.getAttribute('data-time')}`);
+                });
+            });
+            roomRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    console.log(`Room selected: ${this.value} cot(s)`);
+                });
+            });
+            paymentRadios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    console.log(`Payment method selected: ${this.value}`);
+                });
+            });
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
